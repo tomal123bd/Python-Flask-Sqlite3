@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update</title>
+    <style>
+            body {
+                background-image: url({{ url_for('static', filename='backlit-beach-color-258109.jpg') }});
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            h2 {
+                color:lightgoldenrodyellow;
+            }
+            p {
+                text-align: center;
+                color: lightgoldenrodyellow;
+            }
+            a {
+                color: whitesmoke;
+            }
+            form {
+                text-align: center;
+                color: wheat;
+            }
+        </style>
+
+</head>
+<body>
+    <br>
+    <form action="/logout_user" method="POST"">
+            <input type="submit" value="logout">
+       </form>
+    <form action='/update_data' method="POST">
+        <input type="hidden" name=id_data value={{data[0][0]}}>
+        Name: <textarea rows="1" name="name">{{data[0][1]}}</textarea>
+        <br>
+        Comment: <textarea rows="1" name="comment" ">{{data[0][2]}}</textarea>
+        <br>
+        <button type="submit">update</button>
+    </form>
+</body>
+</html>

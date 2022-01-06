@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            background-image: url({{ url_for('static', filename='backlit-beach-color-258109.jpg') }});
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        h2 {
+            text-align: center;
+            color:lightgoldenrodyellow;
+        }
+        p {
+            text-align: center;
+            color: lightgoldenrodyellow;
+        }
+        a {
+            text-align: center;
+            color: whitesmoke;
+        }
+        form {
+            text-align: center;
+            color: wheat;
+        }
+    </style>
+</head>
+<body>
+    <h2><p>
+        {{msg}}<br>
+        <form action='/send' method="POST">
+        Email id: <input type='text' name="email">
+        <button type="submit">Send</button>
+    </form>
+</body>
+</html>

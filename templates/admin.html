@@ -1,0 +1,122 @@
+<html>
+<head>
+<style>
+table, th, td {
+  border: 1px solid white;
+  border-collapse: collapse;
+}
+th, td {
+  background-color: #96D4D4;
+}
+</style>
+</head>
+<body>
+	<form action="/logout_user" method="POST"">
+            <input type="submit" value="Admin logout">
+        </form>
+<table>
+<caption> <b>users</b> </caption>
+	<tr>
+		{% for r in table_data_users %}
+		<th> {{r[1]}} </th>
+		{% endfor %}
+	</tr>
+	{% for r in range (user_data | length) %}
+	<tr>
+		{% for i in range (user_data[r] | length) %}
+		<td> 
+		{{user_data[r][i]}}
+		</td>
+		{% endfor %}
+	</tr>
+	{% endfor %}
+</table>
+<table>
+<tr><th colspan='2'>SQL query for users</th></tr>
+<tr>
+		<form action='/admin_query' method="POST">
+		<td>
+		<textarea name="query" rows='4' cols='30'>INSERT INTO users (user_name, password, email) VALUES ('', '', '')</textarea>
+        	</td>
+        	<td>
+        	<button type="submit">create</button>
+        	</form>
+		</td>
+</tr>
+<tr>
+		<form action='/admin_query' method="POST">
+		<td>
+		<textarea name="query" rows='4' cols='30'>update users set user_name = '' , password = '' , email = '' where user_id = </textarea>
+        	</td>
+        	<td>
+        	<button type="submit">update</button>
+		</form>
+		</td>
+</tr>
+<tr>
+		<form action='/admin_query' method="POST">
+		<td>
+		<textarea name="query" rows='4' cols='30'>DELETE FROM users WHERE user_id = </textarea>
+        	</td>
+        	<td>
+        	<button type="submit">delete</button>
+        	</form>
+		</td>
+</tr>
+</table>	
+<br>
+<table>
+<caption> <b>comments</b> </caption>
+	<tr>
+		{% for r in table_data_comments %}
+		<th> {{r[1]}} </th>
+		{% endfor %}
+	</tr>
+	{% for r in range (comments_data | length) %}
+	<tr>
+		{% for i in range (comments_data[r] | length) %}
+		<td> {{comments_data[r][i]}} </td>
+		{% endfor %}
+	</tr>
+	{% endfor %}
+</table>
+<table>
+<tr><th colspan='2'>SQL query for comments</th></tr>
+<tr>
+		<form action='/admin_query' method="POST">
+		<td>
+		<textarea name="query" rows='4' cols='30'>INSERT INTO comments (name, comment, created_by) VALUES ('', '', '') </textarea>
+        	</td>
+        	<td>
+        	<button type="submit">create</button>
+		</form>
+		</td>
+</tr>
+<tr>
+		<form action='/admin_query' method="POST">
+		<td>
+		<textarea name="query" rows='4' cols='30'>UPDATE comments SET name = '' , comment = '' WHERE id_data =  </textarea>
+        	</td>
+        	<td>
+        	<button type="submit">update</button>
+		</form>
+		</td>
+</tr>
+<tr>
+		<form action='/admin_query' method="POST">
+		<td>
+		<textarea name="query" rows='4' cols='30'>DELETE FROM comments WHERE id_data =  </textarea>
+        	</td>
+        	<td>
+        	<button type="submit">delete</button>
+		</form>
+		</td>
+</tr>
+</table>
+		<form action='/admin_query' method="POST">
+		<p>Run any query</p>
+		<input type="text" name="query" size="50">
+        	<button type="submit">submit</button>
+		</form>
+</body>
+</html>

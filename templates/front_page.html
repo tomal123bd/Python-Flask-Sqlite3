@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+            body {
+                background-image: url({{ url_for('static',filename='backlit-beach-color-258109.jpg') }});
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            h2 {
+            	text-align: center;
+                color:lightgoldenrodyellow;
+            }
+            p {
+                text-align: center;
+                color: lightgoldenrodyellow;
+            }
+            a {
+                color: whitesmoke;
+            }
+            form {
+                text-align: center;
+                color: wheat;
+            }
+        </style>
+
+</head>
+<body>
+<h2>{{msg}}</h2><br>
+<p><b> Create A New Account </b></p>
+<form action='/create_user' method="POST">
+	<br><br>
+        Email: <input type='text' name="email">
+        <br><br>
+        New User Name: <input type='text' name="user_name">
+        <br><br>
+        Password: <input type='password' name="password">
+        <br><br>
+        <button type="submit">Create Account</button>
+</form>
+    <br>
+    <p><i><b>or</b></i></p>
+    <br>
+    <p><b> Log In </b></p>
+    <form action='/login_user' method="POST">
+        User Name: <input type='text' name="user_name">
+        <br><br>
+        Password: <input type='password' name="password">
+        <br><br>
+        <button type="submit">Log in</button>
+    </form>
+    <br>
+    <h2>
+    <a href="{{ url_for('recover') }}">Forget password?</a>
+     </h2>
+    <form action='/admin' method="POST">
+    	Password (For admin use only): <input type='password' placeholder='type admin password' name="password">
+        <button type="submit">Admin view</button>
+    </form>
+</body>
+</html>

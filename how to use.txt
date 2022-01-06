@@ -1,0 +1,15 @@
+This needs python sqlite3
+Open python3 interactive shell and import sqlite3
+1. create a database named 'cloud_database' in the same directory
+2. we have to create 2 tables (users , comments)
+3. execute those sql commands to create tables and its columns:
+
+('''create table comments (id_data integer primary key  autoincrement,name varchar (255), comment varchar (255),created_by varchar (255))''')
+
+('''create table users (user_id integer primary key autoincrement not null,user_name varchar (255),password varchar (255),email varchar (255))''')
+
+4. now run gaustbook.py file in terminal (python3 gaustbook.py)
+This should creates a localhost server, open the browser and type http://127.0.0.1:5000/ or ctrl+click the terminal link
+
+Email me regarding any issue: tomal123bd@gmail.com
+Fb: facebook.com/tomal123
